@@ -1,8 +1,8 @@
 commit: d53ebc8b
 
 runtime Summary:
-AST Parsed     : 18277/18277 (100.00%)
-Positive Passed: 17315/18277 (94.74%)
+AST Parsed     : 18281/18281 (100.00%)
+Positive Passed: 17319/18281 (94.74%)
 minify Error: tasks/coverage/test262/test/language/computed-property-names/class/static/generator-prototype.js
 Test262Error: Expected a TypeError to be thrown but no exception was thrown at all
 

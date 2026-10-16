@@ -2,9 +2,148 @@ commit: b835f0c6
 
 node: v26.12.1
 
-Passed: 322 of 419 (76.85%)
+Passed: 472 of 587 (80.41%)
 
 Failures:
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-block-super-exec.test.js
+ReferenceError: originalB is not defined
+    at dec (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-block-super-exec.test.js:30:16)
+    at _decorateElement (./npm/runtime/src/helpers/decorateElement.js:78:34)
+    at A.[Symbol.iterator] (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-block-super-exec.test.js:56:17)
+    at [Symbol.iterator].next (<anonymous>)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-block-super-exec.test.js:63:15
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-decorator-initializer-this-exec.test.js
+AssertionError: expected [Function replaced] to be [Function Foo] // Object.is equality
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-decorator-initializer-this-exec.test.js:61:21
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-installed-on-correct-class-exec.test.js
+AssertionError: expected false to be true // Object.is equality
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-installed-on-correct-class-exec.test.js:56:20
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-environment-super-exec.test.js
+ReferenceError: originalB is not defined
+    at dec (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-environment-super-exec.test.js:33:16)
+    at _decorateElement (./npm/runtime/src/helpers/decorateElement.js:78:34)
+    at A.[Symbol.iterator] (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-environment-super-exec.test.js:65:17)
+    at [Symbol.iterator].next (<anonymous>)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-environment-super-exec.test.js:72:15
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-instance-element-super-assumption-ignoreFunctionLength-exec.test.js
+Error: Transform error
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-instance-element-super-assumption-ignoreFunctionLength-exec.test.js:4:8
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-instance-element-super-exec.test.js
+TypeError: Private element is not present on this object
+    at _assertClassBrand (./npm/runtime/src/helpers/assertClassBrand.js:3:9)
+    at Foo.method (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-instance-element-super-exec.test.js:52:8)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-method-private-instance-element-super-exec.test.js:83:16
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-private-instance-element-access-exec.test.js
+TypeError: Private element is not present on this object
+    at _assertClassBrand (./npm/runtime/src/helpers/assertClassBrand.js:3:9)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-private-instance-element-access-exec.test.js:210:4
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-private-instance-element-destructuring-exec.test.js
+Error: Transform error
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-private-instance-element-destructuring-exec.test.js:4:8
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-property-super-exec.test.js
+ReferenceError: originalB is not defined
+    at dec (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-property-super-exec.test.js:32:16)
+    at _decorateElement (./npm/runtime/src/helpers/decorateElement.js:78:34)
+    at A.[Symbol.iterator] (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-property-super-exec.test.js:59:17)
+    at [Symbol.iterator].next (<anonymous>)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes--to-es2015-replacement-static-property-super-exec.test.js:67:15
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-expressions-named-evaluation-exec.test.js
+RolldownError: Parse failure: Parse failed with 2 errors:
+'export statement' declaration can only be used at the top level of a module
+23:   const dec = decFactory(logs);
+24:   _Class_decorators = [[void 0, dec]];
+25:   export default class _Class {}
+      ^
+26:   _init = _decoratorStart(null);
+27:   _Class = _decorateElement(_init, 0, "default", _Class_decorators, _Class);'export statement' declaration can only be used at the top level of a module
+27:   _Class = _decorateElement(_init, 0, "default", _Class_decorators, _Class);
+28:   _runInitializers(_init, 1, _Class);
+29:   export const atypical = (_Class_decorators2 = [[void 0, dec]], _Class2 = class {}, _init2 = _decoratorStart(null), ...
+      ^
+30:   expect(logs).toEqual(["default", "atypical"]);
+31:   const noop = () => {};
+At file: /fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-expressions-named-evaluation-exec.test.js:25:1
+    at error (./node_modules/rolldown/dist/shared/logs-D6uA606S.mjs:166:24)
+    at normalizeParseError (./node_modules/rolldown/dist/parse-ast-index.mjs:25:9)
+    at wrap (./node_modules/rolldown/dist/parse-ast-index.mjs:5:39)
+    at parseAstAsync (./node_modules/rolldown/dist/parse-ast-index.mjs:54:9)
+    at async ssrTransformScript (./node_modules/vite/dist/node/chunks/node.js:16527:9)
+    at async loadAndTransform (./node_modules/vite/dist/node/chunks/node.js:20218:64)
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-block-super-exec.test.js
+ReferenceError: originalB is not defined
+    at dec (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-block-super-exec.test.js:25:16)
+    at _decorateElement (./npm/runtime/src/helpers/decorateElement.js:78:34)
+    at A.[Symbol.iterator] (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-block-super-exec.test.js:46:17)
+    at [Symbol.iterator].next (<anonymous>)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-block-super-exec.test.js:53:15
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-elements-super-this-exec.test.js
+ReferenceError: originalB is not defined
+    at dec (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-elements-super-this-exec.test.js:42:16)
+    at _decorateElement (./npm/runtime/src/helpers/decorateElement.js:78:34)
+    at A.[Symbol.iterator] (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-elements-super-this-exec.test.js:74:17)
+    at [Symbol.iterator].next (<anonymous>)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-elements-super-this-exec.test.js:84:15
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-environment-super-exec.test.js
+ReferenceError: originalB is not defined
+    at dec (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-environment-super-exec.test.js:28:16)
+    at _decorateElement (./npm/runtime/src/helpers/decorateElement.js:78:34)
+    at A.[Symbol.iterator] (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-environment-super-exec.test.js:55:17)
+    at [Symbol.iterator].next (<anonymous>)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-environment-super-exec.test.js:62:15
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-instance-element-super-assumption-ignoreFunctionLength-exec.test.js
+Error: Transform error
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-instance-element-super-assumption-ignoreFunctionLength-exec.test.js:4:8
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-instance-element-super-exec.test.js
+TypeError: Private element is not present on this object
+    at _assertClassBrand (./npm/runtime/src/helpers/assertClassBrand.js:3:9)
+    at Foo.method (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-instance-element-super-exec.test.js:52:8)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-method-private-instance-element-super-exec.test.js:83:16
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-private-instance-element-access-exec.test.js
+TypeError: Private element is not present on this object
+    at _assertClassBrand (./npm/runtime/src/helpers/assertClassBrand.js:3:9)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-private-instance-element-access-exec.test.js:210:4
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-private-instance-element-destructuring-exec.test.js
+Error: Transform error
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-private-instance-element-destructuring-exec.test.js:4:8
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-property-super-exec.test.js
+ReferenceError: originalB is not defined
+    at dec (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-property-super-exec.test.js:27:16)
+    at _decorateElement (./npm/runtime/src/helpers/decorateElement.js:78:34)
+    at A.[Symbol.iterator] (./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-property-super-exec.test.js:49:17)
+    at [Symbol.iterator].next (<anonymous>)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-classes-replacement-static-property-super-exec.test.js:57:15
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-duplicated-keys--to-es2015-computed-keys-same-value-exec.test.js
+AssertionError: expected [Function] to throw an error
+    at Proxy.methodWrapper (./node_modules/chai/index.js:1737:25)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-duplicated-keys--to-es2015-computed-keys-same-value-exec.test.js:39:5
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-duplicated-keys--to-es2015-methods-with-same-key-exec.test.js
+AssertionError: expected [Function] to throw an error
+    at Proxy.methodWrapper (./node_modules/chai/index.js:1737:25)
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-duplicated-keys--to-es2015-methods-with-same-key-exec.test.js:33:5
+
+./fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-misc--to-es2015-outer-class-binding-mutated-exec.test.js
+AssertionError: expected function to throw an error, but it didn't
+    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-proposal-decorators-test-fixtures-2023-11-misc--to-es2015-outer-class-binding-mutated-exec.test.js:52:19
 
 ./fixtures/babel/babel-plugin-transform-arrow-functions-test-fixtures-arrow-functions-implicit-var-arguments-exec.test.js
 ./tasks/transform_conformance/fixtures/babel/babel-plugin-transform-arrow-functions-test-fixtures-arrow-functions-implicit-var-arguments-exec.test.js:5
@@ -27,27 +166,6 @@ TypeError: Cannot destructure property 'b' of 'undefined' as it is undefined.
 ./fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-assumption-setPublicClassFields-static-infer-name-exec.test.js
 AssertionError: expected '_Class' to be 'Foo' // Object.is equality
     at ./tasks/transform_conformance/fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-assumption-setPublicClassFields-static-infer-name-exec.test.js:8:19
-
-./fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-nested-class-super-call-in-decorator-exec.test.js
-AssertionError: expected undefined to be 'hello' // Object.is equality
-    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-nested-class-super-call-in-decorator-exec.test.js:21:28
-
-./fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-nested-class-super-property-in-accessor-key-exec.test.js
-./tasks/transform_conformance/fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-nested-class-super-property-in-accessor-key-exec.test.js:15
-	      accessor [super.toString()] = "hello";
-	               ^
-
-SyntaxError: Unexpected token '['
-    at new Script (node:vm:118:7)
-    at createScript (node:vm:270:10)
-    at Object.runInThisContext (node:vm:318:10)
-    at VitestModuleRunner.directRequest (./node_modules/vite/dist/node/module-runner.js:1288:80)
-    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
-    at async VitestModuleRunner.cachedRequest (./node_modules/vite/dist/node/module-runner.js:1195:73)
-
-./fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-nested-class-super-property-in-decorator-exec.test.js
-AssertionError: expected undefined to be 'hello' // Object.is equality
-    at ./tasks/transform_conformance/fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-nested-class-super-property-in-decorator-exec.test.js:22:28
 
 ./fixtures/babel/babel-plugin-transform-class-properties-test-fixtures-private-loose-optional-chain-before-member-call-with-transform-exec.test.js
 AssertionError: expected undefined to deeply equal 1

@@ -50,6 +50,9 @@ pub struct TypeScript<'a> {
     // Options
     source_type_is_typescript_definition: bool,
     is_class_properties_plugin_enabled: bool,
+    lowers_standard_decorators: bool,
+    /// For each class being visited, `true` if class properties transform handles its fields.
+    class_fields_handled_stack: Vec<bool>,
     set_public_class_fields: bool,
     remove_class_fields_without_initializer: bool,
 }
@@ -64,6 +67,8 @@ impl<'a> TypeScript<'a> {
             rewrite_extensions: TypeScriptRewriteExtensions::new(options),
             source_type_is_typescript_definition: state.source_type.is_typescript_definition(),
             is_class_properties_plugin_enabled: state.is_class_properties_plugin_enabled,
+            lowers_standard_decorators: state.lowers_standard_decorators,
+            class_fields_handled_stack: Vec::new(),
             set_public_class_fields: state.assumptions.set_public_class_fields,
             remove_class_fields_without_initializer: !options.allow_declare_fields
                 || options.remove_class_fields_without_initializer,
@@ -119,8 +124,13 @@ impl<'a> Traverse<'a, TransformState<'a>> for TypeScript<'a> {
         self.annotations.enter_class(class, ctx);
 
         // Avoid converting class fields when class-properties plugin is enabled, that plugin has covered all
-        // this transformation does.
-        if !self.is_class_properties_plugin_enabled {
+        // this transformation does. With standard decorators, class-properties also handles
+        // decorated classes when the target supports class fields.
+        let class_fields_handled = self.is_class_properties_plugin_enabled
+            || (self.lowers_standard_decorators
+                && crate::es2022::class_lowered_for_decorators(class));
+        self.class_fields_handled_stack.push(class_fields_handled);
+        if !class_fields_handled {
             if self.set_public_class_fields {
                 self.transform_class_fields(class, ctx);
             } else {
@@ -137,7 +147,8 @@ impl<'a> Traverse<'a, TransformState<'a>> for TypeScript<'a> {
 
         // Avoid converting class fields when class-properties plugin is enabled, that plugin has covered all
         // this transformation does.
-        if !self.is_class_properties_plugin_enabled {
+        let class_fields_handled = self.class_fields_handled_stack.pop().unwrap_or(false);
+        if !class_fields_handled {
             self.transform_class_on_exit(class, ctx);
         }
     }
@@ -189,7 +200,8 @@ impl<'a> Traverse<'a, TransformState<'a>> for TypeScript<'a> {
         ctx: &mut TraverseCtx<'a>,
     ) {
         self.annotations.enter_method_definition(def, ctx);
-        if self.is_class_properties_plugin_enabled || !self.set_public_class_fields {
+        let class_fields_handled = self.class_fields_handled_stack.last().copied().unwrap_or(false);
+        if class_fields_handled || !self.set_public_class_fields {
             Self::transform_class_constructor(def, ctx);
         }
     }
