@@ -229,14 +229,15 @@ impl OnlyExportComponents {
     }
 
     fn can_be_react_function_component(&self, init: Option<&Expression>) -> bool {
-        let Some(raw_init) = init else { return false };
+        let Some(init) = init else { return false };
+        let init = init.get_inner_expression();
         if self.allow_compound_components
-            && let Expression::ObjectExpression(object) = raw_init.get_inner_expression()
+            && let Expression::ObjectExpression(object) = init
         {
             return self.is_compound_component(object);
         }
 
-        match Self::skip_ts_expression(raw_init) {
+        match init {
             Expression::ArrowFunctionExpression(_) => true,
             Expression::FunctionExpression(func) => {
                 func.body.is_some()
@@ -1365,6 +1366,8 @@ export function Button(props: PropsWithChildren): ReactNode {
             export { Icon };",
             None,
         ),
+        ("const App = (function App() { return <div />; });", None),
+        ("const App = ((() => <div />) as React.FC);", None),
     ];
 
     Tester::new(OnlyExportComponents::NAME, OnlyExportComponents::PLUGIN, pass, fail)

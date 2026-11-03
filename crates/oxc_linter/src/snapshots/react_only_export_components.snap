@@ -447,3 +447,15 @@ source: crates/oxc_linter/src/tester.rs
    ·                   ─────
  4 │             export { Icon };
    ╰────
+
+  ⚠ react(only-export-components): Fast refresh only works when a file has exports. Move your component(s) to a separate file.
+   ╭─[only_export_components.tsx:1:7]
+ 1 │ const App = (function App() { return <div />; });
+   ·       ───
+   ╰────
+
+  ⚠ react(only-export-components): Fast refresh only works when a file has exports. Move your component(s) to a separate file.
+   ╭─[only_export_components.tsx:1:7]
+ 1 │ const App = ((() => <div />) as React.FC);
+   ·       ───
+   ╰────
