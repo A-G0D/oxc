@@ -3,7 +3,7 @@ source: crates/oxc_formatter_htmlish/tests/fixtures/mod.rs
 ---
 ==================== Input ====================
 <!DOCTYPE html>
-<html><body><p>{{ a }}</p></body></html>
+<html><body><p>a</p></body></html>
 
 ==================== Output ====================
 ------------------
@@ -12,7 +12,7 @@ source: crates/oxc_formatter_htmlish/tests/fixtures/mod.rs
 <!doctype html>
 <html>
   <body>
-    <p>{{ a }}</p>
+    <p>a</p>
   </body>
 </html>
 
@@ -22,7 +22,7 @@ source: crates/oxc_formatter_htmlish/tests/fixtures/mod.rs
 <!doctype html>
 <html>
   <body>
-    <p>{{ a }}</p>
+    <p>a</p>
   </body>
 </html>
 

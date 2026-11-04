@@ -72,7 +72,7 @@
 
 ## html-in-js
 
-### Option 1: 167/195 (85.64%)
+### Option 1: 168/196 (85.71%)
 
 ```json
 {"printWidth":80}
@@ -137,7 +137,7 @@
 - [externals/webawesome/textarea/textarea.ts](diffs/html-in-js/externals__webawesome__textarea__textarea.ts.md)
   - crates/oxc_formatter/DIVERGENCES.md#union-annotation-flat-retry
 
-### Option 2: 181/195 (92.82%)
+### Option 2: 182/196 (92.86%)
 
 ```json
 {"printWidth":100,"htmlWhitespaceSensitivity":"ignore"}
@@ -301,7 +301,7 @@
 
 ## markdown-mdn
 
-### Option 1: 357/362 (98.62%)
+### Option 1: 359/362 (99.17%)
 
 ```json
 {"printWidth":80,"bracketSameLine":true}
@@ -311,14 +311,10 @@
   - crates/oxc_formatter_css/DIVERGENCES.md#value-semicolon-glue
 - [externals/mdn-css-guides/values_and_units/textual_data_types/index.md](diffs/markdown-mdn/externals__mdn-css-guides__values_and_units__textual_data_types__index.md.md)
   - crates/oxc_formatter_css/DIVERGENCES.md#prelude-string-requote
-- [externals/mdn-learn/css_layout/multiple-column_layout/index.md](diffs/markdown-mdn/externals__mdn-learn__css_layout__multiple-column_layout__index.md.md)
-  - crates/oxc_formatter_htmlish/DIVERGENCES.md#doctype-case
-- [externals/mdn-learn/css_layout/positioning/index.md](diffs/markdown-mdn/externals__mdn-learn__css_layout__positioning__index.md.md)
-  - crates/oxc_formatter_htmlish/DIVERGENCES.md#doctype-case
 - [externals/mdn-learn/structuring_content/basic_html_syntax/index.md](diffs/markdown-mdn/externals__mdn-learn__structuring_content__basic_html_syntax__index.md.md)
   - crates/oxc_formatter_htmlish/DIVERGENCES.md#unquoted-value-with-slash
 
-### Option 2: 357/362 (98.62%)
+### Option 2: 359/362 (99.17%)
 
 ```json
 {"printWidth":100}
@@ -328,43 +324,45 @@
   - crates/oxc_formatter_css/DIVERGENCES.md#value-semicolon-glue
 - [externals/mdn-css-guides/values_and_units/textual_data_types/index.md](diffs/markdown-mdn/externals__mdn-css-guides__values_and_units__textual_data_types__index.md.md)
   - crates/oxc_formatter_css/DIVERGENCES.md#prelude-string-requote
-- [externals/mdn-learn/css_layout/multiple-column_layout/index.md](diffs/markdown-mdn/externals__mdn-learn__css_layout__multiple-column_layout__index.md.md)
-  - crates/oxc_formatter_htmlish/DIVERGENCES.md#doctype-case
-- [externals/mdn-learn/css_layout/positioning/index.md](diffs/markdown-mdn/externals__mdn-learn__css_layout__positioning__index.md.md)
-  - crates/oxc_formatter_htmlish/DIVERGENCES.md#doctype-case
 - [externals/mdn-learn/structuring_content/basic_html_syntax/index.md](diffs/markdown-mdn/externals__mdn-learn__structuring_content__basic_html_syntax__index.md.md)
   - crates/oxc_formatter_htmlish/DIVERGENCES.md#unquoted-value-with-slash
 
 ## html
 
-### Option 1: 488/490 (99.59%)
+### Option 1: 488/491 (99.39%)
 
 ```json
 {"printWidth":80}
 ```
 
+- [edge-cases/html/doctype-case-in-script.html](diffs/html/edge-cases__html__doctype-case-in-script.html.md)
+  - apps/oxfmt/DIVERGENCES.md#doctype-case-in-script
 - [edge-cases/html/script-end-in-gql-template.html](diffs/html/edge-cases__html__script-end-in-gql-template.html.md)
   - apps/oxfmt/DIVERGENCES.md#script-end-in-embedded-template
 - [externals/vite/html/valid.html](diffs/html/externals__vite__html__valid.html.md)
   - crates/oxc_formatter_htmlish/DIVERGENCES.md#unquoted-value-with-slash
 
-### Option 2: 488/490 (99.59%)
+### Option 2: 488/491 (99.39%)
 
 ```json
 {"printWidth":100,"htmlWhitespaceSensitivity":"ignore","singleAttributePerLine":true}
 ```
 
+- [edge-cases/html/doctype-case-in-script.html](diffs/html/edge-cases__html__doctype-case-in-script.html.md)
+  - apps/oxfmt/DIVERGENCES.md#doctype-case-in-script
 - [edge-cases/html/script-end-in-gql-template.html](diffs/html/edge-cases__html__script-end-in-gql-template.html.md)
   - apps/oxfmt/DIVERGENCES.md#script-end-in-embedded-template
 - [externals/vite/html/valid.html](diffs/html/externals__vite__html__valid.html.md)
   - crates/oxc_formatter_htmlish/DIVERGENCES.md#unquoted-value-with-slash
 
-### Option 3: 488/490 (99.59%)
+### Option 3: 488/491 (99.39%)
 
 ```json
 {"printWidth":120,"htmlWhitespaceSensitivity":"strict","bracketSameLine":true}
 ```
 
+- [edge-cases/html/doctype-case-in-script.html](diffs/html/edge-cases__html__doctype-case-in-script.html.md)
+  - apps/oxfmt/DIVERGENCES.md#doctype-case-in-script
 - [edge-cases/html/script-end-in-gql-template.html](diffs/html/edge-cases__html__script-end-in-gql-template.html.md)
   - apps/oxfmt/DIVERGENCES.md#script-end-in-embedded-template
 - [externals/vite/html/valid.html](diffs/html/externals__vite__html__valid.html.md)

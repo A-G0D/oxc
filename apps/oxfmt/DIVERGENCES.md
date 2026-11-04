@@ -349,6 +349,34 @@ On the next parse (Prettier's and ours), the block closes there and the rest of 
 An HTML `<script>` body never prints `</script`: one the formatting produces (an embedded template part printed from its cooked value, html-in-js or gql-in-js) prints as `<\/script`.
 Prettier keeps it in html-in-js, css-in-js and markdown-in-js, but a gql-in-js part prints the cooked `</script`, which closes the `<script>` there.
 
+## doctype-case-in-script
+
+- Why: semantics (an html-in-js template is a JS string, and code reads its case; oxc#28793)
+- Pin: `conformance/fixtures/edge-cases/html/doctype-case-in-script.html`
+
+```html
+<!-- input -->
+<script>
+  const page = html`<!DOCTYPE html>
+    <html></html>`;
+</script>
+
+<!-- ours -->
+<script>
+  const page = html`<!DOCTYPE html>
+    <html></html>`;
+</script>
+
+<!-- prettier -->
+<script>
+  const page = html`<!doctype html>
+    <html></html>`;
+</script>
+```
+
+An html-in-js doctype prints as written in every host (crates/oxc_formatter_htmlish/DIVERGENCES.md#doctype-case).
+Prettier passes the host's file name to the embedded part, so it lowercases one in a `.html` / `.htm` host only.
+
 ## placeholder-case-in-child
 
 - Why: semantics (Prettier prints a lowercased placeholder in place of the `${}` expression)
